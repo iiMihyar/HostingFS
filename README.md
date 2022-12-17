@@ -2,7 +2,7 @@ This project is part of the Udacity FullStack JavaScript nanodegree. The code wa
 
 The project is available at 
 
-http://tb-udagram.s3-website-us-east-1.amazonaws.com
+ADD LINK HERE
 
 
 
@@ -23,4 +23,6 @@ Schema
 4- Deploy (deploy frontend to S3 and deploy api to EB)
 
 
+
+for more information check docs/Pipeline_description.md
 
