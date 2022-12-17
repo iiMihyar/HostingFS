@@ -36,11 +36,6 @@ jobs:
           command: |
             echo "TODO: Build the frontend app"
             npm run frontend:build
-      # Deploying the frontend to AWS S3
-      - run:
-          name: Front-End Deploy
-          command: |
-            npm run frontend:deploy
   # deploy step will run only after manual approval
   deploy:
     docker:
