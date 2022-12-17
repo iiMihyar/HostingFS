@@ -36,22 +36,11 @@ jobs:
           command: |
             echo "TODO: Build the frontend app"
             npm run frontend:build
-      # TODO: Build the backend API      
-      - run:
-          name: API Build
-          command: |
-            echo "TODO: Build the backend API"
-            npm run api:build
       # Deploying the frontend to AWS S3
       - run:
           name: Front-End Deploy
           command: |
             npm run frontend:deploy
-      # Deploying the backend to AWS Elastic Beanstalk
-      - run:
-          name: Back-End Deploy
-          command: |
-            npm run api:deploy
   # deploy step will run only after manual approval
   deploy:
     docker:
