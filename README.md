@@ -2,7 +2,7 @@ This project is part of the Udacity FullStack JavaScript nanodegree. The code wa
 
 The project is available at 
 
-ADD LINK HERE
+http://tb-udagram.s3-website-us-east-1.amazonaws.com/
 
 
 
