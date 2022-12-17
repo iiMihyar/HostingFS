@@ -23,7 +23,7 @@ The order of the run jobs:
 
 
 
-
+scripts
 
     npm run frontend:install - To install frontend dependencies.
     npm run frontend:build - To build the Angular/Frontend.
