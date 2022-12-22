@@ -6,10 +6,10 @@ require('dotenv').config({ path: path.resolve(__dirname, '../../src/.env') })
 // Are Also needed
 
 export const config = {
-  username: `${process.env.DB_USER}`,
-  password: process.env.DB_PASSWORD,
+  username: `${process.env.POSTGRES_USERNAME}`,
+  password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  host: process.env.DB_HOST,
+  host: process.env.POSTGRES_HOST,
   aws_region: process.env.AWS_REGION,
   dbPort:Number(process.env.DB_PORT),
   port:Number(process.env.PORT),
