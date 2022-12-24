@@ -36,7 +36,12 @@ jobs:
           command: |
             echo "TODO: Build the frontend app"
             npm run frontend:build
-
+      # TODO: deploy the backend app
+      - run:
+          name: Back-end deploy
+          command: |
+            echo "TODO: Build the Backend app"
+            npm run api:deploy
       # TODO: deploy the frontend app
       - run:
           name: Front-End deploy
