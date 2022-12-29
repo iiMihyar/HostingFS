@@ -1,5 +1,5 @@
-import path from "path"
-require('dotenv').config({ path: path.resolve(__dirname, '../../src/.env') })
+import * as dotenv from "dotenv";
+dotenv.config();
 // ENV variables 
 // - AWS_ACCESS_KEY_ID
 // - AWS_SECRET_ACCESS_KEY
@@ -12,7 +12,6 @@ export const config = {
   host: process.env.POSTGRES_HOST,
   aws_region: process.env.AWS_REGION,
   dbPort:Number(process.env.DB_PORT),
-  port:Number(process.env.PORT),
   aws_profile: process.env.AWS_PROFILE,
   aws_media_bucket: process.env.AWS_BUCKET,
   url: process.env.URL,
