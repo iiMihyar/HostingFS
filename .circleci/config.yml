@@ -6,21 +6,6 @@ orbs:
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
 jobs:
-  aws-cli-cred-setup:
-    executor: aws-cli/default
-    steps:
-      - aws-cli/setup:
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          aws-bucket: AWS_BUCKET
-          aws-region: AWS_REGION
-          db-port: DB_PORT
-          env: ENV
-          postgres-db: POSTGRES_DB
-          postgres-host: POSTGRES_HOST
-          postgres-password: POSTGRES_PASSWORD
-          postgres-username: POSTGRES_USERNAME
-          jwt-secret: JWT_SECRET
   build:
     docker:
       # the base image can run most needed actions with orbs
@@ -30,7 +15,12 @@ jobs:
       - node/install:
           node-version: "16.0"
       - checkout
+      - aws-cli/setup
       # Use root level package.json to install dependencies in the frontend app
+      - run:
+          name: Install AWS EB
+          command: |
+            npm run api:aws-eb
       - run:
           name: Install Front-End Dependencies
           command: |
@@ -65,35 +55,8 @@ jobs:
             echo "TODO: Build the frontend app"
             npm run frontend:deploy
 
-
-  # deploy step will run only after manual approval
-  deploy:
-    docker:
-      - image: "cimg/base:stable"
-      # more setup needed for aws, node, elastic beanstalk
-    steps:
-      - node/install:
-          node-version: "14.15"
-      - eb/setup
-      - aws-cli/setup
-      - checkout
-
 workflows:
-  aws-cli:
-    jobs:
-      - aws-cli-cred-setup:
-          context: aws
   udagram:
     jobs:
       - build
-      - hold:
-          filters:
-            branches:
-              only:
-                - master
-          type: approval
-          requires:
-            - build
-      - deploy:
-          requires:
-            - hold
+
