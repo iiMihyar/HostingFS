@@ -57,12 +57,6 @@ jobs:
           command: |
             echo "TODO: Build the frontend app"
             npm run frontend:deploy
-      # TODO: deploy the backend app
-      - run:
-          name: backend deploy
-          command: |
-            echo "TODO: Build the backend app"
-            npm run api:deploy
 
 workflows:
   udagram:
